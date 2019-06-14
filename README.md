@@ -3,7 +3,7 @@
 Flutter+Flare investigation into high memory usage.
 
 # App
-The app displays a Flare widget with a looping animation. It also has a checkbox to toggle the dimensions of the widget. When it is checked, the widget is displayed at a large size (10x). When it is unchecked, it is displayed at a small size (0.25x).
+The app displays a Flare widget with a looping animation. It also has a checkbox to toggle the dimensions of the widget. When it is checked, the widget is displayed at a large size (10x). When it is unchecked, it is displayed at a small size (0.25x). Note that the Flare animation is very light colored so it will be hard to make out on the screen, and is effectively invisible when checked.
 
 <img src="simple.jpeg" width="300"/>
 
