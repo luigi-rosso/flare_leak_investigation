@@ -7,7 +7,8 @@ The app displays a Flare widget with a looping animation. It also has a checkbox
 
 <img src="simple.jpeg" width="300"/>
 
-Checking the checkbox causes memory usage to spike up. Unchecking it will let memory drop back down, after a few seconds.
+Checking the checkbox causes memory usage to spike up. Unchecking it will let memory drop back down, after a few seconds. The two spikes in the graph below are from checking and unchecking the box two times.
+
 <img src="memory.png"/>
 
 We've seen a similar issue in Flare when monitoring the Skia resource [cache usage bytes](https://api.skia.org/classGrContext.html#ac1d4b739c9d7e2ef6e831bb73bb5ac76). As you can see [in this video](https://drive.google.com/file/d/1SkgcnzVQf4XnlaulXfKfzpWQoYvkd7SC/view) the cache usage spikes up when zoomed in and then lowers when zoomed out.
