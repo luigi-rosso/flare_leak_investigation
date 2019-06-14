@@ -1,16 +1,12 @@
 # flare_leak_investigation
 
-A new Flutter project.
+Flutter+Flare investigation into high memory usage.
 
-## Getting Started
+# App
+The app displays a Flare widget with a looping animation. It also has a checkbox to toggle the dimensions of the widget. When it is checked, the widget is displayed at a large size (10x). When it is unchecked, it is displayed at a small size (0.25x).
+<img src="simple.jpeg" width="300"/>
 
-This project is a starting point for a Flutter application.
+Checking the checkbox causes memory usage to spike up. Unchecking it will let memory drop back down, after a few seconds.
+<img src="memory.png"/>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+We've seen a similar issue in Flare when monitoring the Skia resource [cache usage bytes](https://api.skia.org/classGrContext.html#ac1d4b739c9d7e2ef6e831bb73bb5ac76). As you can see [in this video](https://drive.google.com/file/d/1SkgcnzVQf4XnlaulXfKfzpWQoYvkd7SC/view) the cache usage spikes up when zoomed in and then lowers when zoomed out.
