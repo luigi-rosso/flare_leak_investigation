@@ -4,6 +4,7 @@ Flutter+Flare investigation into high memory usage.
 
 # App
 The app displays a Flare widget with a looping animation. It also has a checkbox to toggle the dimensions of the widget. When it is checked, the widget is displayed at a large size (10x). When it is unchecked, it is displayed at a small size (0.25x).
+
 <img src="simple.jpeg" width="300"/>
 
 Checking the checkbox causes memory usage to spike up. Unchecking it will let memory drop back down, after a few seconds.
