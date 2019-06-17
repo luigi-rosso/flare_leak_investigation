@@ -55,6 +55,7 @@ class _SampleWidgetState extends State<SampleWidget> {
                   onChanged: (bool value) {
                     setState(() {
                       // Finally works, but not ideal...
+                      // Comment this out to see memory usage skyrocket.
                       SystemChannels.skia.invokeMethod("Skia.setResourceCacheMaxBytes", 104857600);
                       _isChecked = value;
                     });
