@@ -1,10 +1,14 @@
+import 'dart:ui';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  // Causes a crash in Profile mode, maybe the graphics aren't initialized yet?
-  //SystemChannels.skia.invokeMethod("Skia.setResourceCacheMaxBytes", 104857600);
+  window.onReportTimings = (List<FrameTiming> frameTimings) {
+    SystemChannels.skia
+        .invokeMethod("Skia.setResourceCacheMaxBytes", 104857600);
+    window.onReportTimings = null;
+  };
   runApp(MyApp());
 }
 
@@ -23,13 +27,6 @@ class SampleWidget extends StatefulWidget {
 }
 
 class _SampleWidgetState extends State<SampleWidget> {
-  @override
-  void initState()
-  {
-    super.initState();
-    // Also causes a crash in Profile mode...
-    //SystemChannels.skia.invokeMethod("Skia.setResourceCacheMaxBytes", 104857600);
-  }
   bool _isChecked = false;
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -54,9 +51,6 @@ class _SampleWidgetState extends State<SampleWidget> {
                   value: _isChecked,
                   onChanged: (bool value) {
                     setState(() {
-                      // Finally works, but not ideal...
-                      // Comment this in to limit memory usage.
-                      //SystemChannels.skia.invokeMethod("Skia.setResourceCacheMaxBytes", 104857600);
                       _isChecked = value;
                     });
                   },
